@@ -9,16 +9,16 @@ import { Responsavel } from 'src/app/models/responsavel.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://seu-servidor.com/api'; // substitue pela URL real
+  private apiUrl = 'http://localhost/backend/'; // substitue pela URL real
 
   constructor(private http: HttpClient) {}
 
   cadastrarProfissional(profissional: Profissional): Observable<any> {
-    return this.http.post(`${this.apiUrl}/cadastrarProfissional.php`, profissional);
+    return this.http.post(`${this.apiUrl}/cadastrar.php`, profissional);
   }
 
   cadastrarResponsavel(responsavel: Responsavel): Observable<any> {
-    return this.http.post(`${this.apiUrl}/cadastrarResponsavel.php`, responsavel);
+    return this.http.post(`${this.apiUrl}/cadastrar.php`, responsavel);
   }
 
   loginUsuario(email: string, senha: string): Observable<any> {
