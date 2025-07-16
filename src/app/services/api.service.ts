@@ -9,7 +9,7 @@ import { Responsavel } from 'src/app/models/responsavel.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost/backend/'; // substitue pela URL real
+  private apiUrl = 'http://localhost/backend';
 
   constructor(private http: HttpClient) {}
 

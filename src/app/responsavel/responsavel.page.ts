@@ -30,11 +30,11 @@ export class ResponsavelPage {
    this.apiService.cadastrarResponsavel(responsavel).subscribe({
   next: (res) => {
     console.log('Cadastro realizado:', res);
-    alert('Cadastro realizado com sucesso!');
+    alert(res.message);
   },
   error: (err) => {
     console.error('Erro ao cadastrar:', err);
-    alert('Erro no cadastro. Tente novamente.');
+    alert(err.error.message || 'Erro no cadastro. Tente novamente.');
   },
 });
   }
