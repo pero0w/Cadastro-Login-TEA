@@ -31,6 +31,18 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'responsavel-home',
+    loadChildren: () => import('./pages/responsavel-home/responsavel-home.module').then( m => m.ResponsavelHomePageModule)
+  },
+  {
+    path: 'profissional-saude-home',
+    loadChildren: () => import('./pages/profissional-saude-home/profissional-saude-home.module').then( m => m.ProfissionalSaudeHomePageModule)
+  },
+  {
+    path: 'profissional-educacional-home',
+    loadChildren: () => import('./pages/profissional-educacional-home/profissional-educacional-home.module').then( m => m.ProfissionalEducacionalHomePageModule)
+  },
 ];
 
 @NgModule({
