@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'profissional-educacional-home',
     loadChildren: () => import('./pages/profissional-educacional-home/profissional-educacional-home.module').then( m => m.ProfissionalEducacionalHomePageModule)
   },
+  {
+    path: 'questionario',
+    loadChildren: () => import('./questionario/questionario.module').then( m => m.QuestionarioPageModule)
+  },
 ];
 
 @NgModule({
