@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ficha-pessoal"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">
+      GRÁFICOS
+    </ion-title>
+  </ion-toolbar>
+
+<ion-toolbar class="toolbar2">
+    <ion-segment (ionChange)="segmentChanged($event)" value="diario" scrollable="true">
+      <ion-segment-button value="diario">
+        <ion-label>Diário</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="mensal">
+        <ion-label>Mensal</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- CONTEÚDO: GRÁFICO DIÁRIO -->
+  <div [style.display]="tipoGrafico === 'diario' ? 'block' : 'none'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Evolução Diária</ion-card-title>
+        <ion-card-subtitle>Pontuação dia a dia</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- A div do canvas precisa ter tamanho definido -->
+        <div class="grafico-container" style="position: relative; height: 300px; width: 100%;">
+          <canvas #graficoDiarioCanvas></canvas>
+        </div>
+        
+        <div *ngIf="!temDadosDiario" class="ion-text-center ion-padding">
+          <p>Sem dados diários suficientes para exibir o gráfico.</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+    <div class="ion-padding">
+      <p class="texto3 ion-text-center ion-text-small">
+        <strong>Mostra a soma de pontos positivos obtidos a cada dia.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO: GRÁFICO MENSAL -->
+  <div [style.display]="tipoGrafico === 'mensal' ? 'block' : 'none'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Média Mensal</ion-card-title>
+        <ion-card-subtitle>Desempenho geral por mês</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="grafico-container" style="position: relative; height: 300px; width: 100%;">
+          <canvas #graficoMensalCanvas></canvas>
+        </div>
+        
+        <div *ngIf="!temDadosMensal" class="ion-text-center ion-padding">
+          <p>Sem dados mensais suficientes para exibir o gráfico.</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="ion-padding">
+      <p class="texto3 ion-text-center ion-text-small">
+        <strong>Mostra a média de pontos diários consolidados por mês.</strong> 
+      </p>
+    </div>
+  </div>
+
+</ion-content>

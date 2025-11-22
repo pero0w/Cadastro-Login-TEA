@@ -44,12 +44,24 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profissional-educacional-home/profissional-educacional-home.module').then( m => m.ProfissionalEducacionalHomePageModule)
   },
   {
-    path: 'questionario',
-    loadChildren: () => import('./questionario/questionario.module').then( m => m.QuestionarioPageModule)
+    path: 'ficha-pessoal',
+    loadChildren: () => import('./pages/ficha-pessoal/ficha-pessoal.module').then( m => m.FichaPessoalPageModule)
   },
   {
-    path: 'ficha-pessoal',
-    loadChildren: () => import('./ficha-pessoal/ficha-pessoal.module').then( m => m.FichaPessoalPageModule)
+    path: 'cadastrar-assistidos',
+    loadChildren: () => import('./cadastrar-assistidos/cadastrar-assistidos.module').then( m => m.CadastrarAssistidosPageModule)
+  },
+  {
+    path: 'ficha-pessoal/:id', 
+    loadChildren: () => import('./pages/ficha-pessoal/ficha-pessoal.module').then( m => m.FichaPessoalPageModule)
+  },
+  {
+    path: 'questionario/:id',
+  loadChildren: () => import('./pages/questionario/questionario.module').then( m => m.QuestionarioPageModule)
+  },
+  {
+    path: 'grafico-evolucao/:id',
+    loadChildren: () => import('./grafico-evolucao/grafico-evolucao.module').then( m => m.GraficoEvolucaoPageModule)
   },
 ];
 

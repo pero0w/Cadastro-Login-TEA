@@ -1,13 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>responsavel-home</ion-title>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu-login"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">
+      BEM VINDO
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">responsavel-home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+ <div *ngIf="assistidos.length === 0 && !isLoading" class="ion-text-center ion-padding">
+    <p>Você ainda não cadastrou nenhum dependente.</p>
+    <p>Clique no botão '+' para começar.</p>
+  </div>
+
+  <div *ngIf="assistidos.length > 0 && !isLoading" class="aviso">
+    <h4>Ficha e questionário dos Assistidos abaixo:</h4>
+  </div>
+
+  <!-- Lista de Assistidos -->
+  <ion-list *ngIf="assistidos.length > 0">
+    <ion-item *ngFor="let assistido of assistidos" [routerLink]="['/ficha-pessoal', assistido.id]" detail="true">
+      <ion-label>
+        <h2>{{ assistido.nome_completo }}</h2>
+        <p>{{ assistido.grau_parentesco }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  
+  <!-- Botão Flutuante para Adicionar Novo -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/cadastrar-assistidos">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
